@@ -54,6 +54,22 @@ app.post('/convert', (req, res) => {
   }, 2000);
 });
 
+let counter = 0;
+app.get('/poll', (req, res) => {
+  counter++;
+  const data = {
+    value: counter,
+  };
+  res.json(data);
+});
+
+let currentTemp = 20;
+
+app.get('/get-temperature', (req, res) => {
+  currentTemp += Math.random() * 2 - 1;
+  res.send(currentTemp.toFixed(1) + '°C');
+});
+
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
 });
