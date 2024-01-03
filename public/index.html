@@ -18,11 +18,14 @@
       <button
         hx-get="/users"
         hx-target="#users"
-        hx-confirm="Are you sure ?"
+        hx-indicator="#loading"
         class="bg-blue-500 text-white py-2 px-3 my-5 rounded-lg"
       >
         Fetch Users
       </button>
+      <span id="loading" class="htmx-indicator">
+        <img class="m-auto h-10" src="img/loader.gif" alt="Loading...." />
+      </span>
       <div id="users"></div>
     </div>
   </body>
