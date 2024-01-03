@@ -40,6 +40,20 @@ app.get('/users', async (req, res) => {
   }, 2000);
 });
 
+app.post('/convert', (req, res) => {
+  setTimeout(async () => {
+    const fahrenheit = parseFloat(req.body.fahrenheit);
+    const celcius = (fahrenheit - 32) * (5 / 9);
+    res.send(`
+      <p>
+      ${fahrenheit} degrees Fahrenheit is equal to ${celcius.toFixed(
+      2
+    )} degress Celcius.
+      </p> 
+      `);
+  }, 2000);
+});
+
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
 });
